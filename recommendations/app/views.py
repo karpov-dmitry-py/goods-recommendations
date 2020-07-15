@@ -97,7 +97,7 @@ class CategoryViewSet(ModelViewSet):
                     prod_props_values[prod_prop_row.property.id] = prod_prop_row.value
 
                 for curr_product in category.products.exclude(id=product.id):
-                    price_delta = (product.price - curr_product.price) / curr_product.price * 100
+                    price_delta = (product.price - curr_product.price) / product.price * 100
                     price_delta = -price_delta if price_delta < 0 else price_delta
                     price_delta = round(price_delta, 2)
 
